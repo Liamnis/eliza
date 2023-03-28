@@ -8,7 +8,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "chatgpt-api": "^0.0.6",
     "vue": "^3.2.47"
   },
   "devDependencies": {
