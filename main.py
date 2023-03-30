@@ -3,6 +3,7 @@ import openai
 from dotenv import load_dotenv
 from colorama import Fore, Back, Style
 
+
 # load values from the .env file if it exists
 load_dotenv()
 
