@@ -78,18 +78,15 @@
     <div class="chat-container" style="display: none">
       <div id="chatbot-header">
         <h2>Chatbot</h2>
+        <button id="close" type="close">close</button>
       </div>
       <div id="chatbot-body">
         <div class="chat-messages"></div>
-        <form class="chat-form">
-          <input
-            type="text"
-            class="chat-input"
-            placeholder="Tapez votre message..."
-          />
-          <button type="submit">Envoyer</button>
-          <button id="close" type="close">close</button>
-        </form>
+        <div class="chat-buttons">
+          <button class="prompt-btn" data-prompt="Quels sont vos meilleurs gâteaux ?">Quels sont vos meilleurs gâteaux ?</button>
+          <button class="prompt-btn" data-prompt="Quels sont vos horaires d'ouverture ?">Quels sont vos horaires d'ouverture ?</button>
+          <button class="prompt-btn" data-prompt="Comment puis-je passer une commande ?">Comment puis-je passer une commande ?</button>
+        </div>
       </div>
     </div>
     <div class="assistance-btn">

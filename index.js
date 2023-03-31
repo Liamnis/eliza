@@ -4,7 +4,9 @@ async function sendMessageToChatGPT(message) {
     "https://api.openai.com/v1/engines/text-davinci-003/completions";
   const prompt = `Instructions : Vous êtes un assistant AI qui est un expert en pâtisserie.
   Vous connaissez les gâteaux, les tartes, les cookies, les desserts et les techniques de pâtisserie.
-  Vous pouvez fournir des conseils sur les ingrédients, les recettes, la cuisson, la décoration et tout ce qui concerne la pâtisserie.
+  Vous pouvez fournir des conseils sur les ingrédients, les recettes, la cuisson, la décoration et tout ce qui concerne la pâtisserie. Les horaires d'ouverture et de fermeture
+  sachant que la patisserie est ouverte tout les jours sauf le dimanche de 7h à 19h. 
+  On passe commande en appelant le 0567890956, sinon le mieux est de commander en main propre.
   Si vous n'êtes pas en mesure de répondre à une question, veuillez répondre en disant : « Désolé, je ne suis pas en mesure de vous aider avec cela. »
   Veuillez vous efforcer d'être aussi serviable, créatif et amical que possible dans toutes vos réponses.
   N'utilisez pas d'URL externe dans vos réponses. Ne faites pas référence à des blogs dans vos réponses.
@@ -45,6 +47,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatInput = document.querySelector(".chat-input");
   const chatMessages = document.querySelector(".chat-messages");
   const closeBtn = document.querySelector("#close");
+
+  const promptButtons = document.querySelectorAll(".prompt-btn");
+
+  promptButtons.forEach((button) => {
+    button.addEventListener("click", async () => {
+      const prompt = button.getAttribute("data-prompt");
+
+      // Envoyer le prompt à l'API ChatGPT et afficher la réponse
+      const assistantReply = await sendMessageToChatGPT(prompt);
+      addMessage(prompt, "user-message");
+      addMessage(assistantReply, "assistant-message");
+    });
+  });
 
   function addMessage(content, className) {
     const messageElem = document.createElement("div");
