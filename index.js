@@ -1,5 +1,5 @@
 async function sendMessageToChatGPT(message) {
-  const apiKey = "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";
+  const apiKey = "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";
   const apiUrl =
     "https://api.openai.com/v1/engines/text-davinci-003/completions";
   const prompt = `Instructions : Vous êtes un assistant AI qui est un expert en pâtisserie.
